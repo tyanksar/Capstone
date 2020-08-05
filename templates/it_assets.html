@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+  </head>
+  <body>
+    {% for asset in data %}
+    <h1>{{asset.physical_id}} , {{asset.type}} , {{asset.status}}</h1>
+    {% endfor %}
+  </body>
+</html>

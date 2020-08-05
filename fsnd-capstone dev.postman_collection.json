@@ -1,0 +1,840 @@
+{
+	"info": {
+		"_postman_id": "746129f8-3117-41e9-aafd-1a47f40e55e7",
+		"name": "fsnd-capstone Dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IT_Asset_Viewer",
+			"item": [
+				{
+					"name": "http://127.0.0.1:5000/it_asset_inventory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "18d286c2-5516-409a-ab14-c4c73a7febd2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_asset_inventory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_asset_inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/it_assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "18d286c2-5516-409a-ab14-c4c73a7febd2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88f3b99d-b4da-4feb-b944-7a60d4d1ed2b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 403 http://127.0.0.1:5000/it_assets/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3229c280-fe4a-436c-9647-83ef139480f0",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"C123456\",\r\n    \"type\":\"Computer\",\r\n    \"status\":\"PROD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 403 http://127.0.0.1:5000/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4013c02c-ba31-4f95-a3cc-0b6d803e9d69",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"PROD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 403 http://127.0.0.1:5000/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f3969f3-3bb7-4d62-8320-7924847a542f",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTU0MjU3YjAwMDAzOGU0Mjk3MiIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2NTYzMDE4LCJleHAiOjE1OTY2NDk0MTgsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6aXRfYXNzZXRfaW52ZW50b3J5IiwiZ2V0Oml0X2Fzc2V0cyIsImdldDp1c2VycyJdfQ.d01p0Isav4Cad9e41SdjAexzsTa_o1pxkkqgQvzzFSFoSHgZ2kreTwIdz1LN64xpWUuur_RTYtMNs3T_BsshWKrSiJ-L4k-GOox1Yfz_7rpD6q-c9nqvBAQE2M3cwRIo3Pu46EBBnqmM7OxPXTc1Cy42TkMHh2owFAvn9z5xuShskNrj2AlPAQ21V4jum_xWY9gCsOGXMe_69fAofh_-fluFOBp5DYxD6drMqZ9mm0o1UEODKhfLfoFflKv3AMVWSuwbnl8sfn4bb_gytYB5_mTt5aDdA743rNlfP6nEZEpMv-GUZmbITlCn0rK9wh3KyjtAIhJ00MIOIwBZ4EP0aw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "02cc879b-2782-4bb5-80b8-98c09e8db385",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "589f431a-b670-4d0f-a487-761443b0d8cb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "IT_Asset_Manager",
+			"item": [
+				{
+					"name": "http://127.0.0.1:5000/it_assets/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0502e865-7318-426d-a866-acc6c7392d08",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"C123456\",\r\n    \"type\":\"Computer\",\r\n    \"status\":\"PROD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "13da2033-7b43-414e-b039-b4696dab160c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"RTIP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/users/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "123c27b8-0704-41c5-af93-3ecf7ad6ce6f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Omar\",\r\n    \"badge_no\":111111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/it_asset_inventory/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "470f436b-f50d-4425-a2af-c30d6e49da0d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"C123456\",\r\n    \"badge_no\":\"111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_asset_inventory/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_asset_inventory",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/it_assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1303040d-8936-4f45-bd3f-09cc454b0991",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83a899ee-8d72-4902-a565-1405127f51bf",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/it_asset_inventory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6bbc61c-d87c-4b63-bb5e-ce97fe76b37a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_asset_inventory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_asset_inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ad847ea-a318-4d66-b262-63154d2c39bc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/users/<bno>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7e31f4e-30e6-4289-9a26-3e679ea85d6f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Rami\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/111111",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/users/<bno>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "61e09484-34a7-453c-9e14-6f7be9b9483a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/111111",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 404 http://127.0.0.1:5000/users/<bno>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a121e240-1533-41f0-b9df-719ad79a9187",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/999999",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"999999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 404 http://127.0.0.1:5000/it_asset_inventory/add Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "abee3ec0-960b-418c-b6ff-a6e59f81f0aa",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"S999999\",\r\n    \"badge_no\":999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/it_asset_inventory/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"it_asset_inventory",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTA2NWM4NDhmMDAzN2M0MWNmNSIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2NTYyOTMwLCJleHAiOjE1OTY2NDkzMzAsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6aXRfYXNzZXQiLCJkZWxldGU6dXNlciIsImdldDppdF9hc3NldF9pbnZlbnRvcnkiLCJnZXQ6aXRfYXNzZXRzIiwiZ2V0OnVzZXJzIiwicGF0Y2g6aXRfYXNzZXQiLCJwYXRjaDp1c2VyIiwicG9zdDppdF9hc3NldCIsInBvc3Q6aXRfYXNzZXRfaW52ZW50b3J5IiwicG9zdDp1c2VyIl19.Pw_1U695ZAfQrIOUcNrfMl-OR4MwPzJI_RASvf_fpDactZfAIrSqQ83tjl8zn7qIcRfsGEANwpH-gnIRR91bOSgA53dh-I1zQ_UoANyOz0e1iyEiPqczL7vTlE3VPka6FGBla-_BHOOrMM3YwnzQB-wi7-hzMnenf-1uKHT2xHt1_pNayOnep_tLLOaFG74O5dVP4zWW_ts9txAQUjkxMdrIAd05jjqZPCI-5h6LMy4hGY5UC5BuvMMTn9aHuRAboPgchpAXemNfVuAApv2b8bq-17XojUj3UUZwkxDxeocXo6-AINwBGqRt-l_KXpnmIwA2oi94-QoiZSAYGqihvQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fa079230-b63b-4960-8350-c6c3b42a3151",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "361357e6-f750-471e-ad1b-034cc4707260",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3fe9b79f-a0e0-4c94-90f9-9e87759bcd11",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d00ab3b3-cb84-4ead-9c40-c784edf6aa8c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

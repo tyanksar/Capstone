@@ -1,0 +1,804 @@
+{
+	"info": {
+		"_postman_id": "4f025acb-3c61-4870-9355-8e32c5910bb7",
+		"name": "fsnd-capstone Prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IT_Asset_Viewer",
+			"item": [
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_asset_inventory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5d00acd2-ce17-4a64-b85f-e65385807658",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_asset_inventory",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_asset_inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a06fdf8-a927-410a-80d5-ad1d83e5d889",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c30cb35d-579b-405b-919b-3faa1c27a564",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 403 https://capstone-turki.herokuapp.com/it_assets/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dad8e0f4-ce3f-4e9b-8753-eb821ac531f3",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"C123456\",\r\n    \"type\":\"Computer\",\r\n    \"status\":\"PROD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets/add",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 403 https://capstone-turki.herokuapp.com/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8731048e-0938-496f-95d1-a819bdec5fa8",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"PROD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets/P332211",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets",
+								"P332211"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 403 https://capstone-turki.herokuapp.com/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85819841-2ae5-4277-9565-95cfc7d5706e",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets/C123456",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTU0MjU3YjAwMDAzOGU0Mjk3MiIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2NTYzMDE4LCJleHAiOjE1OTY2NDk0MTgsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6aXRfYXNzZXRfaW52ZW50b3J5IiwiZ2V0Oml0X2Fzc2V0cyIsImdldDp1c2VycyJdfQ.d01p0Isav4Cad9e41SdjAexzsTa_o1pxkkqgQvzzFSFoSHgZ2kreTwIdz1LN64xpWUuur_RTYtMNs3T_BsshWKrSiJ-L4k-GOox1Yfz_7rpD6q-c9nqvBAQE2M3cwRIo3Pu46EBBnqmM7OxPXTc1Cy42TkMHh2owFAvn9z5xuShskNrj2AlPAQ21V4jum_xWY9gCsOGXMe_69fAofh_-fluFOBp5DYxD6drMqZ9mm0o1UEODKhfLfoFflKv3AMVWSuwbnl8sfn4bb_gytYB5_mTt5aDdA743rNlfP6nEZEpMv-GUZmbITlCn0rK9wh3KyjtAIhJ00MIOIwBZ4EP0aw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cbbff303-a0aa-4600-86fd-a06cc19a9f0f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "24eb72e0-edf5-412f-8782-f49d92b2a2d5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "IT_Asset_Manager",
+			"item": [
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_assets/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b25b5f25-eaba-4eeb-837b-21f32d8d6d14",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"C123456\",\r\n    \"type\":\"Computer\",\r\n    \"status\":\"PROD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets/add",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88bc9086-968f-4040-b1d1-abd8a1b19e2e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"RTIP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets/C123456",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/users/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "54074850-3678-457e-bff8-0d7836c022e8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Omar\",\r\n    \"badge_no\":111111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/users/add",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_asset_inventory/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2323877f-d237-456b-a485-1729450bd1cb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"C123456\",\r\n    \"badge_no\":\"111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_asset_inventory/add",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_asset_inventory",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44a665ec-42de-4553-bf8f-7a0235f8d5c9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "492ba6f9-b585-4bc8-a9d8-24c29f8cdc5d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_asset_inventory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "68fadb4d-20ab-4e35-bba3-fab5e78e562c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_asset_inventory",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_asset_inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/it_assets/<pid>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3b32c9d0-1cdb-40f7-98db-09750dcac49b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_assets/C123456",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_assets",
+								"C123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/users/<bno>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d619e87e-9de2-431d-b59b-0e579d3df75a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Rami\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/users/111111",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://capstone-turki.herokuapp.com/users/<bno>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "654e7144-4e4b-4299-98ce-1101817e1a51",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/users/111111",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 404 https://capstone-turki.herokuapp.com/users/<bno>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "65e08cca-6e29-4f57-bb35-e32644adcfc6",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/users/999999",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"999999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error 404 https://capstone-turki.herokuapp.com/it_asset_inventory/add",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91540cb2-27f6-43a2-b6e9-80732fa18b1a",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"physical_id\":\"S999999\",\r\n    \"badge_no\":999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://capstone-turki.herokuapp.com/it_asset_inventory/add",
+							"protocol": "https",
+							"host": [
+								"capstone-turki",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"it_asset_inventory",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTA2NWM4NDhmMDAzN2M0MWNmNSIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2NTYyOTMwLCJleHAiOjE1OTY2NDkzMzAsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6aXRfYXNzZXQiLCJkZWxldGU6dXNlciIsImdldDppdF9hc3NldF9pbnZlbnRvcnkiLCJnZXQ6aXRfYXNzZXRzIiwiZ2V0OnVzZXJzIiwicGF0Y2g6aXRfYXNzZXQiLCJwYXRjaDp1c2VyIiwicG9zdDppdF9hc3NldCIsInBvc3Q6aXRfYXNzZXRfaW52ZW50b3J5IiwicG9zdDp1c2VyIl19.Pw_1U695ZAfQrIOUcNrfMl-OR4MwPzJI_RASvf_fpDactZfAIrSqQ83tjl8zn7qIcRfsGEANwpH-gnIRR91bOSgA53dh-I1zQ_UoANyOz0e1iyEiPqczL7vTlE3VPka6FGBla-_BHOOrMM3YwnzQB-wi7-hzMnenf-1uKHT2xHt1_pNayOnep_tLLOaFG74O5dVP4zWW_ts9txAQUjkxMdrIAd05jjqZPCI-5h6LMy4hGY5UC5BuvMMTn9aHuRAboPgchpAXemNfVuAApv2b8bq-17XojUj3UUZwkxDxeocXo6-AINwBGqRt-l_KXpnmIwA2oi94-QoiZSAYGqihvQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6cc24e92-46ea-4e60-b1b4-b2995004f6fd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a538bd6-5a15-48a1-a3f4-c1b55a9254b2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0efee79c-3935-4aff-97c3-88ad2776a47a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "46d3825e-786a-4a26-9893-81c9ca978b54",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
