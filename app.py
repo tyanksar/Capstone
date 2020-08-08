@@ -60,8 +60,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/inventory', methods=['POST'])
-    @requires_auth('post:asset_inventory')
-    def add_asset_inventory(token):
+    @requires_auth('post:it_asset_inventory')
+    def add_it_asset_inventory(token):
         body = request.get_json()
         new_physical_id = body.get('physical_id', None)
         new_badge_no = int(body.get('badge_no', None))
