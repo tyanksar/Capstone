@@ -7,7 +7,7 @@ import psycopg2
 
 ENV = 'dev'
 
-if ENV == 'dev':
+if ENV == 'de':
     database_name = "Capstone"
     database_path = "postgres://{}/{}".format(
         'postgres@localhost:5432', database_name)
