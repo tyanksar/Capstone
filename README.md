@@ -63,13 +63,13 @@ With this the repo is deployed in herouku and an address will be provided. Type 
 Endpoints (APIs):
 
 There are mainly ten (10) endpoints in the app listed below. Note: replace {token} with an actual one for the curl command to work:
-1.	GET ‘/it_asset_inventory’
+1.	GET ‘/inventory’
 
 •	A list of all IT asset inventory which consists of IT assets(physical ID, type and status) and the users information (name and badge number) combined together.
 
 •	Request Arguments: none
 
-•	curl https://capstone-turki.herokuapp.com/it_asset_inventory -H "Accept: application/json" -H "Authorization: Bearer {token}"
+•	curl https://capstone-turki.herokuapp.com/inventory -H "Accept: application/json" -H "Authorization: Bearer {token}"
 
 •	If there are no IT asset inventory it will return the following JSON text:
 
@@ -95,26 +95,26 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
     "success": true
 }
 
-2.	POST '/it_asset_inventory/add'
+2.	POST '/inventory'
 
 •	Assigns two records to together: an IT asset and a user.
 
 •	Request Arguments: physical_id, badge_no
 
-•	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"physical_id":"C123456", "badge_no":"111111"}' http://127.0.0.1:5000/it_asset_inventory/add
+•	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"physical_id":"C123456", "badge_no":"111111"}' http://127.0.0.1:5000/inventory
 
 {
     "status": 200,
     "success": true
 }
 
-3.	GET '/it_assets'
+3.	GET '/assets'
 
 •	A list of all IT assets in the database.
 
 •	Request Arguments: none.
 
-•	curl http://127.0.0.1:5000/it_assets  -H "Authorization: Bearer {token}" -H "Content-Type: application/json"
+•	curl http://127.0.0.1:5000/assets  -H "Authorization: Bearer {token}" -H "Content-Type: application/json"
 
 •	If there are no IT asset inventory it will return the following JSON text:
 
@@ -137,13 +137,13 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
     "success": true
 }
 
-4.	POST '/it_assets/add'
+4.	POST '/assets'
 
 •	Inserts a new record of an IT asset in the database.
 
 •	Request Arguments: physical_id, type and status. 
 
-•	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"physical_id":"C123456", "type":"Computer", "status":"PROD"}' http://127.0.0.1:5000/it_assets/add
+•	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"physical_id":"C123456", "type":"Computer", "status":"PROD"}' http://127.0.0.1:5000/assets
 
 {
     "it_asset": {
@@ -156,26 +156,26 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
     "success": true
 }
 
-5.	PATCH '/it_assets/<string:pid>'
+5.	PATCH '/assets/<string:pid>'
 
 •	Updates an IT asset record by physical ID.
 
 •	Request Argument: physical_id
 
-•	curl -X PATCH -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"status":"RTIP"}' http://127.0.0.1:5000/it_assets/C123456
+•	curl -X PATCH -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"status":"RTIP"}' http://127.0.0.1:5000/assets/C123456
 
 {
     "status": 200,
     "success": true
 }
 
-6.	DELETE '/it_assets/<string:pid>'
+6.	DELETE '/assets/<string:pid>'
 
 •	Deletes an IT asset record by physical ID.
 
 •	Request Argument: physical_id
 
-•	curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer {token} http://127.0.0.1:5000/it_assets/C123456 
+•	curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer {token} http://127.0.0.1:5000/assets/C123456 
 
 {
     "status": 200,
@@ -210,11 +210,11 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
     }
 }
 
-8.	POST '/users/add'
+8.	POST '/users'
 
-•	Insets a new user in the database by badge number.
+•	Insrets a new user in the database by badge number.
 
-•	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"name":"Omar", "badge_no":"111111"}' http://127.0.0.1:5000/users/add
+•	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"name":"Omar", "badge_no":"111111"}' http://127.0.0.1:5000/users
 
 {
     "status": 200,
