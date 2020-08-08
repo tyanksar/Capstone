@@ -111,15 +111,21 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 3.	GET '/it_assets'
 
 •	A list of all IT assets in the database.
+
 •	Request Arguments: none.
+
 •	curl http://127.0.0.1:5000/it_assets  -H "Authorization: Bearer {token}" -H "Content-Type: application/json"
+
 •	If there are no IT asset inventory it will return the following JSON text:
+
 {
 "message": "There are currently no IT assets",
 "status": 200,
 "success": true
 }
+
 •	If there is a least an IT asset, it will return the following JSON text:
+
 {
     "it_asset": {
         "id": 46,
@@ -132,9 +138,13 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 4.	POST '/it_assets/add'
+
 •	Inserts a new record of an IT asset in the database.
+
 •	Request Arguments: physical_id, type and status. 
+
 •	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"physical_id":"C123456", "type":"Computer", "status":"PROD"}' http://127.0.0.1:5000/it_assets/add
+
 {
     "it_asset": {
         "id": 46,
@@ -147,34 +157,49 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 5.	PATCH '/it_assets/<string:pid>'
+
 •	Updates an IT asset record by physical ID.
+
 •	Request Argument: physical_id
+
 •	curl -X PATCH -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"status":"RTIP"}' http://127.0.0.1:5000/it_assets/C123456
+
 {
     "status": 200,
     "success": true
 }
 
 6.	DELETE '/it_assets/<string:pid>'
+
 •	Deletes an IT asset record by physical ID.
+
 •	Request Argument: physical_id
+
 •	curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer {token} http://127.0.0.1:5000/it_assets/C123456 
+
 {
     "status": 200,
     "success": true
 }
 
 7.	GET '/users'
+
 •	A list of all users in the database
+
 •	Request Arguments: none
+
 •	curl http://127.0.0.1:5000/users  -H "Authorization: Bearer {token}" -H "Content-Type: application/json"
+
 •	If there are no users,  it will return the following JSON text:
+
 {
     "message": "There are currently no users",
     "status": 200,
     "success": true
 }
+
 •	If there is a least one user, it will return the following JSON text:
+
 {
     "status": 200,
     "success": true,
@@ -186,8 +211,11 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 8.	POST '/users/add'
+
 •	Insets a new user in the database by badge number.
+
 •	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"name":"Omar", "badge_no":"111111"}' http://127.0.0.1:5000/users/add
+
 {
     "status": 200,
     "success": true,
@@ -199,8 +227,11 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 9.	PATCH '/users/<int:bno>'
+
 •	Updates a user record in the database by badge number.
+
 •	Request Argument: badge_no
+
 •	curl -X PATCH -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"name":"Fahd"}' http://127.0.0.1:5000/users /111111
 
 {
@@ -209,8 +240,11 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 10.	DELETE '/users/<int:bno>'
+
 •	Deletes a user record by badge number.
+
 •	Request Argument: badge_no
+
 •	curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer {token} http://127.0.0.1:5000/users/111111
 {
     "status": 200,
@@ -218,14 +252,18 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 Authentication:
+
 Currently there are two users created in AUTH0.com: it_asset_manager and it_asset_viewer.
 The former has the authentication to perform all ten (10) actions. The later will only have access to the GET methods of the end points. 
 To test their authentication, please download and install Postman, run it, import the file: “fsnd-capstone prod.postman_collection.json” from the repo and then run it. It should give a pass result of eighteen (18) scenarios. 
 Below are the tokens for the both of users:
+
 it_asset_manager:
+
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTA2NWM4NDhmMDAzN2M0MWNmNSIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2ODY5NjY3LCJleHAiOjE1OTY5NTYwNjcsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6aXRfYXNzZXQiLCJkZWxldGU6dXNlciIsImdldDppdF9hc3NldF9pbnZlbnRvcnkiLCJnZXQ6aXRfYXNzZXRzIiwiZ2V0OnVzZXJzIiwicGF0Y2g6aXRfYXNzZXQiLCJwYXRjaDp1c2VyIiwicG9zdDppdF9hc3NldCIsInBvc3Q6aXRfYXNzZXRfaW52ZW50b3J5IiwicG9zdDp1c2VyIl19.VItg9SwqZr1ewaHmsrBLTp5f_Vsf9BEhZYv1ck7KqazdKr1_exEdqGCGIdYmyM5gKarBeRbnOb1CMACFlhHAocvIx7cMpEl1mjCJ7nKotf2C5yCja35CTtE0twdjDhi-Ub5OHbMc-mBaj8yOUaHy_BnVm-FRcRlUZ8pHKlfJ-cuYbIqkgpXZp7QykLfCdxxMZV4SNVQQ6nuoVsRfsuUjJVo3jO6pP_xrZFprQ0oE4UqR1wDvl_unVxE3TrbRWsWwmNIJBkjvmoPeVE2bXHo4VB8pZuV_fwMiXQLlYIf-jvpudERnLAzbIeZS1pWrAw3tifiR6OD9zlGipqNog-PpfA
 
 it_asset_viewer:
+
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTU0MjU3YjAwMDAzOGU0Mjk3MiIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2ODcwMDA5LCJleHAiOjE1OTY5NTY0MDksImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6aXRfYXNzZXRfaW52ZW50b3J5IiwiZ2V0Oml0X2Fzc2V0cyIsImdldDp1c2VycyJdfQ.J4ZTb0F3EDDWZx2X0eTEq_hUyqZFxP79HoC-FLvwL-LU-03lEAyuF1X6pe01oevvW8c7xQOS1f5QyRbKaQ-AbpIAV0pRugwR1xfBgPLFePP1KMtXrYhpOXR2Ua2TyUwXRBz5hZAFOBNkx04jiMP_jdGXGThyohuLH0FGqvMkNoSM5CE3oSYcVEjEf9ERTlTrgkV2BtICSiWMH3PELXMUl3h-d7uXeiE9XH9kx7-efKMmsA_KCFYwewRIf3n-4b528aJrCloYper8by0tiXXM0uyCkiZA2Swrmci6eoeqMRE2a-FynltWbYht9tgjolNoIZqBz__ou8XT-H0bOcjGRg
 
 
