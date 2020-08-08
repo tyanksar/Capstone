@@ -36,7 +36,10 @@ The repo consists of four main python files:
 4.	manage.py
 
 The repo is kind of hybrid, meaning that it can be used for local development and with minor changes in the code it can be used in production and hosted in the cloud as well. To set it up for local development, edit both app.py and models.py and change the variable value of ENV to ‘dev’ and then save the files.
-Once done, make sure that you are in the project folder. Type “flask run --reload” to run the application and you are set to go. The app will run in the address: http://127.0.0.1:5000.
+Once done, make sure that you are in the project folder.
+1. Type "source setup.sh"
+2. Type "./setup.sh"
+3. Type “flask run --reload” to run the application and you are set to go. The app will run in the address: http://127.0.0.1:5000.
 To test the code, simply run the test_app.py by typing “python test_app.py” the test bypass the authentication process as this will be tested using Postman instead. The test should end with seventeen (17) successful endpoint test results. 
 
 Hosting Instructions:
@@ -47,17 +50,21 @@ As mentioned earlier, the repo is hybrid, simply follow below steps to have the 
 3.	Download and install Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli)
 4.	Make sure that the Procfile exists contains the following line: “web: gunicorn 'app:create_app(test_config=None)' --preload”
 5.	In the command line type: 
-a.	“python manage.py db init”
-b.	“python manage.py db migrate”
-c.	“python manage.py db upgrade”
-d.	“git init”
-e.	“heroku login”, press any key to open your browser and start logging in.
-f.	“heroku create <your app name>”, example: “heroku create capstone-project”.
-g.	“heroku addons:create heroku-postgresql:hobby-dev --app capstone-project”.
-h.	“freeze > requirements.txt”
-i.	“heroku git:remote -a capstone-project”
-j.	“git push Heroku master”
-k.	Once the app is deployed, run migrations by running: “heroku run python manage.py db upgrade --app capstone-project”
+    a.	“python manage.py db init”
+    b.	“python manage.py db migrate”
+    c.	“python manage.py db upgrade”
+    d.	“git init”
+    e.	“heroku login”, press any key to open your browser and start logging in.
+    f.	“heroku create <your app name>”, example: “heroku create capstone-project”.
+    g.	“heroku addons:create heroku-postgresql:hobby-dev --app capstone-project”.
+    h.	“freeze > requirements.txt”
+    i.	“heroku git:remote -a capstone-project”
+    j.	“git push Heroku master”
+    k.	Once the app is deployed, run migrations by running: “heroku run python manage.py db upgrade --app capstone-project”
+    l. in the Herkou.com website, go to settings and set the Congig Vars as follows:
+    AUTH0_DOMAIN --> fsdn-turki.us.auth0.com
+    ALGORITHMS --> RS256
+    API_AUDIENCE --> Capstone
 With this the repo is deployed in herouku and an address will be provided. Type in “heroku open” to run the app.
 
 Endpoints (APIs):

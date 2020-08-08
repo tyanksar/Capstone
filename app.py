@@ -10,7 +10,7 @@ from auth.auth import AuthError, requires_auth
 
 
 def create_app(test_config=None):
-    ENV = 'de'
+    ENV = 'dev'
     # create and configure the app
     app = Flask(__name__)
     setup_db(app)
