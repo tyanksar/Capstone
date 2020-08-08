@@ -2,13 +2,16 @@
 IT Asset Inventory System
 
 Introduction:
+
 In large companies, IT assets are high in quantities, utilized by various employees scattered all around the company’s facilities. Inventory in this case is required to track down the assets and assuring accentualities in some cases.  This repo creates an app that maintains IT asset inventory. The app allows to add a list of IT assets as well as adding a list of users’ information. IT assets can then be assigned to user to ensure accountability and track down any IT asset in the system. 
 
 Working App:
+
 To view a production app, it can be accessed from https://capstone-turki.herokuapp.com/
 Currently there is no front end so far. But it can be utilized through API endpoints mentioned in this readme file.
 
 Dependencies:
+
 For this project you need Python3 (https://www.python.org/) to be installed as well as a code editor such as Visual Studio Code (https://code.visualstudio.com/).
 Make sure to install the following packages afterward:
 1.	Flask
@@ -24,7 +27,9 @@ To install the dependencies type pip install <dependency name> in the bash comma
 You also need to download and install PostgreSQL (a free open source relational database) from https://www.postgresql.org/ 
 
 Local Development:
+
 The repo consists of four main python files:
+
 1.	app.py
 2.	modles.py and
 3.	test_app.py
@@ -35,6 +40,7 @@ Once done, make sure that you are in the project folder. Type “flask run --rel
 To test the code, simply run the test_app.py by typing “python test_app.py” the test bypass the authentication process as this will be tested using Postman instead. The test should end with seventeen (17) successful endpoint test results. 
 
 Hosting Instructions:
+
 As mentioned earlier, the repo is hybrid, simply follow below steps to have the code ready to be deployed in the Heroku cloud service:
 1.	Make sure that the ENV variable in both app.py and models.py is set to “prod”.
 2.	Create an account (free) in both Heroku.com and Github.com.
@@ -55,18 +61,26 @@ k.	Once the app is deployed, run migrations by running: “heroku run python man
 With this the repo is deployed in herouku and an address will be provided. Type in “heroku open” to run the app.
 
 Endpoints (APIs):
+
 There are mainly ten (10) endpoints in the app listed below. Note: replace {token} with an actual one for the curl command to work:
 1.	GET ‘/it_asset_inventory’
+
 •	A list of all IT asset inventory which consists of IT assets(physical ID, type and status) and the users information (name and badge number) combined together.
+
 •	Request Arguments: none
+
 •	curl https://capstone-turki.herokuapp.com/it_asset_inventory -H "Accept: application/json" -H "Authorization: Bearer {token}"
+
 •	If there are no IT asset inventory it will return the following JSON text:
+
 {
 "message": "There are currently no IT asset inventory",
 "status": 200,
 "success": true
 }
+
 •	If there is an IT asset inventory it will return the following JSON text:
+
 {
     "it_asset_inventory": [
         {
@@ -82,15 +96,20 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
 }
 
 2.	POST '/it_asset_inventory/add'
+
 •	Assigns two records to together: an IT asset and a user.
+
 •	Request Arguments: physical_id, badge_no
+
 •	curl -X POST -H "Authorization: Bearer {token}" -H "Content-Type: application/json" -d '{"physical_id":"C123456", "badge_no":"111111"}' http://127.0.0.1:5000/it_asset_inventory/add
+
 {
     "status": 200,
     "success": true
 }
 
 3.	GET '/it_assets'
+
 •	A list of all IT assets in the database.
 •	Request Arguments: none.
 •	curl http://127.0.0.1:5000/it_assets  -H "Authorization: Bearer {token}" -H "Content-Type: application/json"
