@@ -10,7 +10,7 @@ from auth.auth import AuthError, requires_auth
 
 
 def create_app(test_config=None):
-    ENV = 'prod'
+    ENV = 'dev'
     # create and configure the app
     app = Flask(__name__)
     setup_db(app)
@@ -91,7 +91,7 @@ def create_app(test_config=None):
     '''
     IT Assets
     '''
-    @app.route('/it_assets')
+    @app.route('/it_assets', methods=['GET'])
     @requires_auth('get:it_assets')
     def get_it_assets(token):
         it_assets = IT_Assets.query.all()
@@ -186,7 +186,7 @@ def create_app(test_config=None):
     '''
     Users
     '''
-    @app.route('/users')
+    @app.route('/users', methods=['GET'])
     @requires_auth('get:users')
     def get_users(token):
         users = Users.query.all()
