@@ -21,6 +21,7 @@ Make sure to install the following packages afterward:
 8.	Pyscopg2 
 To install the dependencies type pip install <dependency name> in the bash command line. Example: “pip install flask”.
 You also need to download and install PostgreSQL (a free open source relational database) from https://www.postgresql.org/ 
+
 Local Development:
 The repo consists of four main python files:
 1.	app.py
