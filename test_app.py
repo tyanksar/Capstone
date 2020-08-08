@@ -78,7 +78,7 @@ class CapstoneTestCase(unittest.TestCase):
         "type": "Computer"
         "status": PROD
         '''
-        res = self.client().post('/it_assets/add',
+        res = self.client().post('/assets',
                                  json={'physical_id': 'C123456',
                                        'type': 'Computer',
                                        'status': 'PROD'})
@@ -97,7 +97,7 @@ class CapstoneTestCase(unittest.TestCase):
         In which it should return a 422 error since
         the column "status" is not nullable.
         '''
-        res = self.client().post('/it_assets/add',
+        res = self.client().post('/assets',
                                  json={'physical_id': 'C999999',
                                        'type': 'Computer',
                                        'status': None})
@@ -112,7 +112,7 @@ class CapstoneTestCase(unittest.TestCase):
         computer with "physical_id": "C123456" from
         "PROD" to "RTIP"
         '''
-        res = self.client().patch('/it_assets/C123456',
+        res = self.client().patch('/assets/C123456',
                                   json={'physical_id': 'C123456',
                                         'type': 'Computer',
                                         'status': 'RTIP'})
@@ -127,7 +127,7 @@ class CapstoneTestCase(unittest.TestCase):
         "RTIP" to None in which it should return a
         422 error since "status" is not nullable
         '''
-        res = self.client().patch('/it_assets/C123456',
+        res = self.client().patch('/assets/C123456',
                                   json={'physical_id': 'C123456',
                                         'type': 'Computer',
                                         'status': None})
@@ -138,7 +138,7 @@ class CapstoneTestCase(unittest.TestCase):
 
     def test_05_get_it_assets(self):
         # successfuly retrieving all IT assets from the database.
-        res = self.client().get('/it_assets')
+        res = self.client().get('/assets')
         data = json.loads(res.data)
         self.assertEqual(data['success'], True)
         self.assertTrue(data['it_assets'])
@@ -150,7 +150,7 @@ class CapstoneTestCase(unittest.TestCase):
         "name": "fake user"
         "badge_no": "111111"
         '''
-        res = self.client().post('/users/add',
+        res = self.client().post('/users',
                                  json={'name': 'fake name',
                                        'badge_no': '111111', })
         data = json.loads(res.data)
@@ -166,7 +166,7 @@ class CapstoneTestCase(unittest.TestCase):
         In which it should return a 422 error since
         the column "name" is not nullable.
         '''
-        res = self.client().post('/users/add',
+        res = self.client().post('/users',
                                  json={'name': None,
                                        'badge_no': '222222'})
         data = json.loads(res.data)
@@ -208,7 +208,7 @@ class CapstoneTestCase(unittest.TestCase):
 
     def test_11_add_it_asset_inventory(self):
         # Successfuly adding an IT asset inventory
-        res = self.client().post('/it_asset_inventory/add',
+        res = self.client().post('/inventory',
                                  json={'physical_id': 'C123456',
                                        'badge_no': '111111'})
         data = json.loads(res.data)
@@ -217,14 +217,14 @@ class CapstoneTestCase(unittest.TestCase):
 
     def test_12_get_it_asset_inventory(self):
         # successfuly retrieving all IT assets from the database.
-        res = self.client().get('/it_asset_inventory')
+        res = self.client().get('/inventory')
         data = json.loads(res.data)
         self.assertEqual(data['success'], True)
         self.assertTrue(data['it_asset_inventory'])
 
     def test_13_delete_it_assets(self):
         # Successfuly deleting an IT asset with physical ID: "C123456"
-        res = self.client().delete('/it_assets/C123456')
+        res = self.client().delete('/assets/C123456')
         data = json.loads(res.data)
         self.assertEqual(data['success'], True)
         self.assertEqual(res.status_code, 200)
@@ -236,7 +236,7 @@ class CapstoneTestCase(unittest.TestCase):
         return a 404 error since the IT asset does
         not exist in the database
         '''
-        res = self.client().delete('/it_assets/C99999')
+        res = self.client().delete('/assets/C99999')
         data = json.loads(res.data)
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], "Not Found")
@@ -269,7 +269,7 @@ class CapstoneTestCase(unittest.TestCase):
         exist in which it should return a 404 error since
         there are no records in the database
         '''
-        res = self.client().post('/it_asset_inventory/add',
+        res = self.client().post('/inventory',
                                  json={'physical_id': 'C123456',
                                        'badge_no': '111111'})
         data = json.loads(res.data)

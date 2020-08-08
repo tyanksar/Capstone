@@ -29,7 +29,7 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html')
 
-    @app.route('/it_asset_inventory', methods=['GET'])
+    @app.route('/inventory', methods=['GET'])
     @requires_auth('get:it_asset_inventory')
     def it_asset_inventory(token):
 
@@ -59,9 +59,9 @@ def create_app(test_config=None):
             'success': True,
         })
 
-    @app.route('/it_asset_inventory/add', methods=['POST'])
-    @requires_auth('post:it_asset_inventory')
-    def add_it_asset_inventory(token):
+    @app.route('/inventory', methods=['POST'])
+    @requires_auth('post:asset_inventory')
+    def add_asset_inventory(token):
         body = request.get_json()
         new_physical_id = body.get('physical_id', None)
         new_badge_no = int(body.get('badge_no', None))
@@ -91,7 +91,7 @@ def create_app(test_config=None):
     '''
     IT Assets
     '''
-    @app.route('/it_assets', methods=['GET'])
+    @app.route('/assets', methods=['GET'])
     @requires_auth('get:it_assets')
     def get_it_assets(token):
         it_assets = IT_Assets.query.all()
@@ -111,7 +111,7 @@ def create_app(test_config=None):
             'success': True,
         })
 
-    @app.route('/it_assets/add', methods=['POST'])
+    @app.route('/assets', methods=['POST'])
     @requires_auth('post:it_asset')
     def add_it_asset(token):
         body = request.get_json()
@@ -141,7 +141,7 @@ def create_app(test_config=None):
         except:
             abort(422)
 
-    @app.route('/it_assets/<string:pid>', methods=['PATCH'])
+    @app.route('/assets/<string:pid>', methods=['PATCH'])
     @requires_auth('patch:it_asset')
     def update_it_asset(token, pid):
         it_asset = IT_Assets.query.filter(
@@ -165,7 +165,7 @@ def create_app(test_config=None):
         except:
             abort(422)
 
-    @app.route('/it_assets/<string:pid>', methods=['DELETE'])
+    @app.route('/assets/<string:pid>', methods=['DELETE'])
     @requires_auth('delete:it_asset')
     def delete_it_asset(token, pid):
         it_asset = IT_Assets.query.filter(
@@ -205,7 +205,7 @@ def create_app(test_config=None):
             'success': True
         })
 
-    @app.route('/users/add', methods=['POST'])
+    @app.route('/users', methods=['POST'])
     @requires_auth('post:user')
     def add_user(token):
         body = request.get_json()
