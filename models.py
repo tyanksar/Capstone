@@ -5,7 +5,7 @@ import json
 from sqlalchemy.orm import backref
 import psycopg2
 
-ENV = 'de'
+ENV = 'dev'
 
 if ENV == 'dev':
     database_name = "Capstone"
