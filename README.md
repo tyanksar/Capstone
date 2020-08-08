@@ -19,6 +19,7 @@ Make sure to install the following packages afterward:
 6.	Flask-RESTful
 7.	Gunicorn and
 8.	Pyscopg2 
+
 To install the dependencies type pip install <dependency name> in the bash command line. Example: “pip install flask”.
 You also need to download and install PostgreSQL (a free open source relational database) from https://www.postgresql.org/ 
 
@@ -28,6 +29,7 @@ The repo consists of four main python files:
 2.	modles.py and
 3.	test_app.py
 4.	manage.py
+
 The repo is kind of hybrid, meaning that it can be used for local development and with minor changes in the code it can be used in production and hosted in the cloud as well. To set it up for local development, edit both app.py and models.py and change the variable value of ENV to ‘dev’ and then save the files.
 Once done, make sure that you are in the project folder. Type “flask run --reload” to run the application and you are set to go. The app will run in the address: http://127.0.0.1:5000.
 To test the code, simply run the test_app.py by typing “python test_app.py” the test bypass the authentication process as this will be tested using Postman instead. The test should end with seventeen (17) successful endpoint test results. 
