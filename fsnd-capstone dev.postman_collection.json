@@ -9,7 +9,7 @@
 			"name": "IT_Asset_Viewer",
 			"item": [
 				{
-					"name": "http://127.0.0.1:5000/it_asset_inventory",
+					"name": "http://127.0.0.1:5000/inventory",
 					"event": [
 						{
 							"listen": "test",
@@ -28,7 +28,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_asset_inventory",
+							"raw": "http://127.0.0.1:5000/inventory",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -38,14 +38,14 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_asset_inventory"
+								"inventory"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/it_assets",
+					"name": "http://127.0.0.1:5000/assets",
 					"event": [
 						{
 							"listen": "test",
@@ -64,7 +64,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets",
+							"raw": "http://127.0.0.1:5000/assets",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -74,7 +74,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets"
+								"assets"
 							]
 						}
 					},
@@ -117,7 +117,7 @@
 					"response": []
 				},
 				{
-					"name": "Error 403 http://127.0.0.1:5000/it_assets/add",
+					"name": "Error 403 http://127.0.0.1:5000/assets/",
 					"event": [
 						{
 							"listen": "test",
@@ -145,7 +145,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets/add",
+							"raw": "http://127.0.0.1:5000/assets",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -155,15 +155,14 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets",
-								"add"
+								"assets"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Error 403 http://127.0.0.1:5000/it_assets/<pid>",
+					"name": "Error 403 http://127.0.0.1:5000/assets/<pid>",
 					"event": [
 						{
 							"listen": "test",
@@ -191,7 +190,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"raw": "http://127.0.0.1:5000/assets/C123456",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -201,7 +200,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets",
+								"assets",
 								"C123456"
 							]
 						}
@@ -209,7 +208,7 @@
 					"response": []
 				},
 				{
-					"name": "Error 403 http://127.0.0.1:5000/it_assets/<pid>",
+					"name": "Error 403 http://127.0.0.1:5000/assets/<pid>",
 					"event": [
 						{
 							"listen": "test",
@@ -228,7 +227,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"raw": "http://127.0.0.1:5000/assets/C123456",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -238,7 +237,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets",
+								"assets",
 								"C123456"
 							]
 						}
@@ -251,7 +250,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTU0MjU3YjAwMDAzOGU0Mjk3MiIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2NTYzMDE4LCJleHAiOjE1OTY2NDk0MTgsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6aXRfYXNzZXRfaW52ZW50b3J5IiwiZ2V0Oml0X2Fzc2V0cyIsImdldDp1c2VycyJdfQ.d01p0Isav4Cad9e41SdjAexzsTa_o1pxkkqgQvzzFSFoSHgZ2kreTwIdz1LN64xpWUuur_RTYtMNs3T_BsshWKrSiJ-L4k-GOox1Yfz_7rpD6q-c9nqvBAQE2M3cwRIo3Pu46EBBnqmM7OxPXTc1Cy42TkMHh2owFAvn9z5xuShskNrj2AlPAQ21V4jum_xWY9gCsOGXMe_69fAofh_-fluFOBp5DYxD6drMqZ9mm0o1UEODKhfLfoFflKv3AMVWSuwbnl8sfn4bb_gytYB5_mTt5aDdA743rNlfP6nEZEpMv-GUZmbITlCn0rK9wh3KyjtAIhJ00MIOIwBZ4EP0aw",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTU0MjU3YjAwMDAzOGU0Mjk3MiIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2ODcwMDA5LCJleHAiOjE1OTY5NTY0MDksImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6aXRfYXNzZXRfaW52ZW50b3J5IiwiZ2V0Oml0X2Fzc2V0cyIsImdldDp1c2VycyJdfQ.J4ZTb0F3EDDWZx2X0eTEq_hUyqZFxP79HoC-FLvwL-LU-03lEAyuF1X6pe01oevvW8c7xQOS1f5QyRbKaQ-AbpIAV0pRugwR1xfBgPLFePP1KMtXrYhpOXR2Ua2TyUwXRBz5hZAFOBNkx04jiMP_jdGXGThyohuLH0FGqvMkNoSM5CE3oSYcVEjEf9ERTlTrgkV2BtICSiWMH3PELXMUl3h-d7uXeiE9XH9kx7-efKMmsA_KCFYwewRIf3n-4b528aJrCloYper8by0tiXXM0uyCkiZA2Swrmci6eoeqMRE2a-FynltWbYht9tgjolNoIZqBz__ou8XT-H0bOcjGRg",
 						"type": "string"
 					}
 				]
@@ -284,7 +283,7 @@
 			"name": "IT_Asset_Manager",
 			"item": [
 				{
-					"name": "http://127.0.0.1:5000/it_assets/add",
+					"name": "http://127.0.0.1:5000/assets",
 					"event": [
 						{
 							"listen": "test",
@@ -312,7 +311,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets/add",
+							"raw": "http://127.0.0.1:5000/assets",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -322,15 +321,14 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets",
-								"add"
+								"assets"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/it_assets/<pid>",
+					"name": "http://127.0.0.1:5000/assets/<pid>",
 					"event": [
 						{
 							"listen": "test",
@@ -358,7 +356,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"raw": "http://127.0.0.1:5000/assets/C123456",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -368,7 +366,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets",
+								"assets",
 								"C123456"
 							]
 						}
@@ -376,7 +374,7 @@
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/users/add",
+					"name": "http://127.0.0.1:5000/users",
 					"event": [
 						{
 							"listen": "test",
@@ -404,7 +402,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/users/add",
+							"raw": "http://127.0.0.1:5000/users",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -414,15 +412,14 @@
 							],
 							"port": "5000",
 							"path": [
-								"users",
-								"add"
+								"users"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/it_asset_inventory/add",
+					"name": "http://127.0.0.1:5000/inventory",
 					"event": [
 						{
 							"listen": "test",
@@ -450,7 +447,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_asset_inventory/add",
+							"raw": "http://127.0.0.1:5000/inventory",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -460,15 +457,14 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_asset_inventory",
-								"add"
+								"inventory"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/it_assets",
+					"name": "http://127.0.0.1:5000/assets",
 					"event": [
 						{
 							"listen": "test",
@@ -487,7 +483,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets",
+							"raw": "http://127.0.0.1:5000/assets",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -497,7 +493,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets"
+								"assets"
 							]
 						}
 					},
@@ -540,7 +536,7 @@
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/it_asset_inventory",
+					"name": "http://127.0.0.1:5000/inventory",
 					"event": [
 						{
 							"listen": "test",
@@ -559,7 +555,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_asset_inventory",
+							"raw": "http://127.0.0.1:5000/inventory",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -569,14 +565,14 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_asset_inventory"
+								"inventory"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://127.0.0.1:5000/it_assets/<pid>",
+					"name": "http://127.0.0.1:5000/assets/<pid>",
 					"event": [
 						{
 							"listen": "test",
@@ -595,7 +591,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_assets/C123456",
+							"raw": "http://127.0.0.1:5000/assets/C123456",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -605,7 +601,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_assets",
+								"assets",
 								"C123456"
 							]
 						}
@@ -733,7 +729,7 @@
 					"response": []
 				},
 				{
-					"name": "Error 404 http://127.0.0.1:5000/it_asset_inventory/add Copy",
+					"name": "Error 404 http://127.0.0.1:5000/inventory",
 					"event": [
 						{
 							"listen": "test",
@@ -761,7 +757,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/it_asset_inventory/add",
+							"raw": "http://127.0.0.1:5000/inventory",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -771,8 +767,7 @@
 							],
 							"port": "5000",
 							"path": [
-								"it_asset_inventory",
-								"add"
+								"inventory"
 							]
 						}
 					},
@@ -784,7 +779,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTA2NWM4NDhmMDAzN2M0MWNmNSIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2NTYyOTMwLCJleHAiOjE1OTY2NDkzMzAsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6aXRfYXNzZXQiLCJkZWxldGU6dXNlciIsImdldDppdF9hc3NldF9pbnZlbnRvcnkiLCJnZXQ6aXRfYXNzZXRzIiwiZ2V0OnVzZXJzIiwicGF0Y2g6aXRfYXNzZXQiLCJwYXRjaDp1c2VyIiwicG9zdDppdF9hc3NldCIsInBvc3Q6aXRfYXNzZXRfaW52ZW50b3J5IiwicG9zdDp1c2VyIl19.Pw_1U695ZAfQrIOUcNrfMl-OR4MwPzJI_RASvf_fpDactZfAIrSqQ83tjl8zn7qIcRfsGEANwpH-gnIRR91bOSgA53dh-I1zQ_UoANyOz0e1iyEiPqczL7vTlE3VPka6FGBla-_BHOOrMM3YwnzQB-wi7-hzMnenf-1uKHT2xHt1_pNayOnep_tLLOaFG74O5dVP4zWW_ts9txAQUjkxMdrIAd05jjqZPCI-5h6LMy4hGY5UC5BuvMMTn9aHuRAboPgchpAXemNfVuAApv2b8bq-17XojUj3UUZwkxDxeocXo6-AINwBGqRt-l_KXpnmIwA2oi94-QoiZSAYGqihvQ",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTA2NWM4NDhmMDAzN2M0MWNmNSIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2ODY5NjY3LCJleHAiOjE1OTY5NTYwNjcsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6aXRfYXNzZXQiLCJkZWxldGU6dXNlciIsImdldDppdF9hc3NldF9pbnZlbnRvcnkiLCJnZXQ6aXRfYXNzZXRzIiwiZ2V0OnVzZXJzIiwicGF0Y2g6aXRfYXNzZXQiLCJwYXRjaDp1c2VyIiwicG9zdDppdF9hc3NldCIsInBvc3Q6aXRfYXNzZXRfaW52ZW50b3J5IiwicG9zdDp1c2VyIl19.VItg9SwqZr1ewaHmsrBLTp5f_Vsf9BEhZYv1ck7KqazdKr1_exEdqGCGIdYmyM5gKarBeRbnOb1CMACFlhHAocvIx7cMpEl1mjCJ7nKotf2C5yCja35CTtE0twdjDhi-Ub5OHbMc-mBaj8yOUaHy_BnVm-FRcRlUZ8pHKlfJ-cuYbIqkgpXZp7QykLfCdxxMZV4SNVQQ6nuoVsRfsuUjJVo3jO6pP_xrZFprQ0oE4UqR1wDvl_unVxE3TrbRWsWwmNIJBkjvmoPeVE2bXHo4VB8pZuV_fwMiXQLlYIf-jvpudERnLAzbIeZS1pWrAw3tifiR6OD9zlGipqNog-PpfA",
 						"type": "string"
 					}
 				]
