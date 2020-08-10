@@ -1,16 +1,16 @@
 
 IT Asset Inventory System
 
-Introduction:
+# Introduction:
 
 In large companies, IT assets are high in quantities, utilized by various employees scattered all around the company’s facilities. Inventory in this case is required to track down the assets and assuring accentualities in some cases.  This repo creates an app that maintains IT asset inventory. The app allows to add a list of IT assets as well as adding a list of users’ information. IT assets can then be assigned to user to ensure accountability and track down any IT asset in the system. 
 
-Working App:
+# Working App:
 
 To view a production app, it can be accessed from https://capstone-turki.herokuapp.com/
 Currently there is no front end so far. But it can be utilized through API endpoints mentioned in this readme file.
 
-Dependencies:
+# Dependencies:
 
 For this project you need Python3 (https://www.python.org/) to be installed as well as a code editor such as Visual Studio Code (https://code.visualstudio.com/).
 Make sure to install the following packages afterward:
@@ -26,7 +26,7 @@ Make sure to install the following packages afterward:
 To install the dependencies type pip install <dependency name> in the bash command line. Example: “pip install flask”.
 You also need to download and install PostgreSQL (a free open source relational database) from https://www.postgresql.org/ 
 
-Local Development:
+# Local Development:
 
 The repo consists of four main python files:
 
@@ -42,7 +42,7 @@ Once done, make sure that you are in the project folder.
 3. Type “flask run --reload” to run the application and you are set to go. The app will run in the address: http://127.0.0.1:5000.
 To test the code, simply run the test_app.py by typing “python test_app.py” the test bypass the authentication process as this will be tested using Postman instead. The test should end with seventeen (17) successful endpoint test results. 
 
-Hosting Instructions:
+# Hosting Instructions:
 
 As mentioned earlier, the repo is hybrid, simply follow below steps to have the code ready to be deployed in the Heroku cloud service:
 1.	Make sure that the ENV variable in both app.py and models.py is set to “prod”.
@@ -67,7 +67,7 @@ As mentioned earlier, the repo is hybrid, simply follow below steps to have the 
     API_AUDIENCE --> Capstone
 With this the repo is deployed in herouku and an address will be provided. Type in “heroku open” to run the app.
 
-Endpoints (APIs):
+# Endpoints (APIs):
 
 There are mainly ten (10) endpoints in the app listed below. Note: replace {token} with an actual one for the curl command to work:
 1.	GET ‘/inventory’
@@ -258,14 +258,14 @@ There are mainly ten (10) endpoints in the app listed below. Note: replace {toke
     "success": true
 }
 
-Authentication:
+# Authentication:
 
 Currently there are two users created in AUTH0.com: it_asset_manager and it_asset_viewer.
 The former has the authentication to perform all ten (10) actions. The later will only have access to the GET methods of the end points. 
 To test their authentication, please download and install Postman, run it, import the file: “fsnd-capstone prod.postman_collection.json” from the repo and then run it. It should give a pass result of eighteen (18) scenarios. 
 Below are the tokens for the both of users:
 
-it_asset_manager:
+# it_asset_manager:
 
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjRxTlpCWWZBbjFZMmtKU05vZkVHOSJ9.eyJpc3MiOiJodHRwczovL2ZzZG4tdHVya2kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMjJkNTA2NWM4NDhmMDAzN2M0MWNmNSIsImF1ZCI6IkNhcHN0b25lIiwiaWF0IjoxNTk2ODY5NjY3LCJleHAiOjE1OTY5NTYwNjcsImF6cCI6IkJlWXUzVEw1TFNKVk5JMFFSNEdTWUNJb1lWVDVnZFhLIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6aXRfYXNzZXQiLCJkZWxldGU6dXNlciIsImdldDppdF9hc3NldF9pbnZlbnRvcnkiLCJnZXQ6aXRfYXNzZXRzIiwiZ2V0OnVzZXJzIiwicGF0Y2g6aXRfYXNzZXQiLCJwYXRjaDp1c2VyIiwicG9zdDppdF9hc3NldCIsInBvc3Q6aXRfYXNzZXRfaW52ZW50b3J5IiwicG9zdDp1c2VyIl19.VItg9SwqZr1ewaHmsrBLTp5f_Vsf9BEhZYv1ck7KqazdKr1_exEdqGCGIdYmyM5gKarBeRbnOb1CMACFlhHAocvIx7cMpEl1mjCJ7nKotf2C5yCja35CTtE0twdjDhi-Ub5OHbMc-mBaj8yOUaHy_BnVm-FRcRlUZ8pHKlfJ-cuYbIqkgpXZp7QykLfCdxxMZV4SNVQQ6nuoVsRfsuUjJVo3jO6pP_xrZFprQ0oE4UqR1wDvl_unVxE3TrbRWsWwmNIJBkjvmoPeVE2bXHo4VB8pZuV_fwMiXQLlYIf-jvpudERnLAzbIeZS1pWrAw3tifiR6OD9zlGipqNog-PpfA
 
