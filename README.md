@@ -1,7 +1,7 @@
 
-IT Asset Inventory System
+# IT Asset Inventory System
 
-# Introduction:
+# 1 Introduction:
 
 In large companies, IT assets are high in quantities, utilized by various employees scattered all around the company’s facilities. Inventory in this case is required to track down the assets and assuring accentualities in some cases.  This repo creates an app that maintains IT asset inventory. The app allows to add a list of IT assets as well as adding a list of users’ information. IT assets can then be assigned to user to ensure accountability and track down any IT asset in the system. 
 
